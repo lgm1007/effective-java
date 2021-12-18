@@ -11,6 +11,7 @@ public class PCSpecTest {
         final String gpu = "RTX 3080";
         final int ram = 32;
 
+        // 빌더 패턴
         final PCSpec pcSpec = new PCSpec.Builder()
                                         .monQuality(monQuality)
                                         .cpu(cpu)
