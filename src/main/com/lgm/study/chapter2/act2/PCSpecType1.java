@@ -1,13 +1,14 @@
 package com.lgm.study.chapter2.act2;
 
-public class PCSpec {
-    private final String monQuality;
-    private final String cpu;
-    private final String gpu;
-    private final int ram;
+public class PCSpecType1 {
+    // 필드에 기본값 부여
+    private String monQuality = "FHD";
+    private String cpu = "Intel i5";
+    private String gpu = "GTX 1060";
+    private int ram = 16;
 
     // private 생성자
-    private PCSpec (Builder builder) {
+    private PCSpecType1(Builder builder) {
         this.monQuality = builder.monQuality;
         this.cpu = builder.cpu;
         this.gpu = builder.gpu;
@@ -42,8 +43,8 @@ public class PCSpec {
         }
 
         // 객체 생성 메서드
-        public PCSpec build() {
-            return new PCSpec(this);
+        public PCSpecType1 build() {
+            return new PCSpecType1(this);
         }
     }
 }
