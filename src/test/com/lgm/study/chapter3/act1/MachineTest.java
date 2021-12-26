@@ -11,10 +11,12 @@ public class MachineTest {
         FactoryMachine fm1 = new FactoryMachine(1001, 'A', Operator.ALEX);
         FactoryMachine fm2 = new FactoryMachine(1002, 'B', Operator.BENJAMIN);
         FactoryMachine fm3 = new FactoryMachine(1001, 'A', Operator.COVY);
+        FactoryMachine fm4 = new FactoryMachine(1001, 'A', Operator.ALEX);
 
         System.out.println(m1.equals(m3));      // TRUE
         System.out.println(m1.equals(fm1));     // FALSE
         System.out.println(m2.equals(fm2));     // FALSE
         System.out.println(fm1.equals(fm3));    // FALSE
+        System.out.println(fm1.equals(fm4));    // TRUE
     }
 }
