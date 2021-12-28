@@ -6,11 +6,42 @@
 * `x.clone().getClass() == x.getClass()` 는 true, 하지만 반드시 만족하지 않음
 * `x.clone().equals(x)` 는 true, 하지만 필수는 아님
 * `x.clone().getClass() == x.getClass()`, `super.clone()` 을 호출해서 얻은 객체를 clone 메서드가 반환하면, 이 식은 true
-  * clone 메서드가 `super.clone()`이 아닌 생성자를 호출해 얻은 인스턴스를 반환하더라도 컴파일 시 문제가 되지 않지만 해당 클래스의 <u>하위 클래스에서 `super.clone()`을 호출</u>한다면 하위 클래스 타입을 반환하지 않고 <u>상위 클래스 타입을 반환</u>하기에 문제가 생길 수 있음
 ### clone 재정의 시 주의사항
 * clone 은 원본 객체에 아무런 영향을 끼치지 않는 동시에 복사된 객체의 불변식을 보장해야 함
 * 복제할 수 있는 클래스를 만들기 위해 일부 필드에서 `final` 한정자를 제거해야 할 수 있음
 * 재정의될 수 있는 메서드를 호출하지 않아야 함
+* 가변 객체가 포함된 객체의 복사는 조심해야 함
+```java
+public class CloneableList implements Cloneable {
+    private String name;
+    private List<String> nameList = new ArrayList<>();
+    
+    public CloneableList(String name) {
+        addName(name);
+    }
+    
+    public void addName(String name) {
+        nameList.add(name);
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public List<String> getNameList() {
+        return nameList;
+    }
+    
+    // 리스트와 같은 가변 객체가 포함되어 있는 경우
+    // super.clone() 메서드의 사용을 조심해야 함
+    // 복제된 인스턴스의 가변 객체를 변경하면 원본 객체도 동일하게 변경되버리는 현상 발생!
+    @Override
+    protected CloneableList clone() throws CloneNotSupportedException {
+        return (CloneableList) super.clone();
+    }
+}
+```
 ### 복사 생성자와 복사 팩터리 메서드
 * Cloneable 의 clone 메서드 대신 복사 생성자와 복사 팩터리 메서드를 사용
 ```java
