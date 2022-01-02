@@ -13,6 +13,24 @@
 5. 자신 외에는 내부의 가변 컴포넌트에 접근할 수 없도록 한다
    * 클래스에 가변 객체를 참조하는 필드가 하나라도 있다면 클라이언트에서 그 객체의 참조를 얻을 수 없도록 해야 함
    * 접근자 메서드가 해당 객체를 그대로 반환해서도 안되며, 방어적 복사를 수행해야 함
+```java
+public final class Calculator {
+    private final double a;
+    private final double b;
+    
+    public Calculator(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
+    
+    public Calculator plus(Calculator calculator) {
+        // 자신의 필드를 수정하지 않고 새로운 객체를 생성함
+        // (불변 클래스는 반드시 독립된 객체로 만듬)
+        // 피연산자는 그대로 (함수형 프로그래밍)
+        new Calculator(a + calculator.a, b + calculator.b);
+    }
+}
+```
 ### 불변 복소수 클래스
 * 피연산자에 함수를 적용해 그 결과를 반환하지만, 피연산자 자체는 그대로인 프로그래밍 패턴을 함수형 프로그래밍이라고 함
 * 절차적, 명령형 프로그래밍에서는 메서드에서 피연산자인 자신을 수정하여 상태가 변하게 됨
