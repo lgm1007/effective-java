@@ -6,6 +6,38 @@
 ### 컴포지션을 사용하라
 * 기존 클래스를 확장하는 대신 새로운 클래스를 만들고 private 필드로 기존 클래스의 인스턴스 참조
 * 컴포지션으로 새 클래스의 인스턴스 메서드들은 기존 클래스에 대응하는 메서드를 호출해 그 결과를 반환
+```java
+public interface Connections {
+    public Connection makeConnection();
+    ...
+}
+
+public class OConnections implements Connections {
+    public Connection makeConnection() {
+        // Codes ... 
+        // return Connection Object
+    }
+}
+
+public class ObjDto {
+    // 컴포지션 사용
+    private Connections connections;
+    
+    public ObjDto(Connections connections) {
+        this.connections = connections;
+    }
+    
+    public add(AObj aObj) {
+        // 컴포지션 메서드 호출
+        Connection c = connections.makeConnection();
+        ...
+    }
+}
+
+// In Use
+Connections connections = new OConnections();
+ObjDto objDto = new ObjDto(connections);
+```
 ### 상속을 사용하기 전 점검 사항
 1. 확장하려는 클래스의 API에 아무런 결함이 없는가?
 2. 결함이 있다면, 이 결함이 새로운 클래스의 API까지 전파되어도 괜찮은가?
