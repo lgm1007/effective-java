@@ -9,6 +9,36 @@
   * 상속용으로 설계한 클래스는 배포 전에 반드시 하위 클래스를 만들어 검증해야 함
 ### 상속을 허용하는 클래스가 지켜야 할 제약
 * 상속용 클래스의 생성자는 직접적이든 간접적이든 재정의 가능 메서드를 호출해서는 안 됨
+```java
+public class Super {
+    public Super() {
+        overrideMtd();
+    }
+    
+    public void overrideMtd() {
+    }
+}
+
+public final class Sub extends Super {
+    private final Instant instant;
+    
+    Sub() {
+        instant = Instant.now();
+    }
+    
+    @Override
+    public void overrideMtd() {
+        System.out.println(instant);
+    }
+}
+
+// Sub 인스턴스 생성 시 Super의 생성자가 먼저 호출되고, Sub의 생성자가 호출됨
+// Super의 overrideMtd(), sub.overrideMtd() 총 2번이 호출됨
+// Super의 overrideMtd()는 instant가 초기화되지 않은 상태로 실행되므로 null 발생
+// 만일 println 이 아닌 instant를 호출하려 했다면 NullPointerException 던짐
+Sub sub = new Sub();
+sub.overrideMtd();
+```
 * `clone`과 `readObject` 모두 직접적으로든 간접적으로든 재정의 가능 메서드를 호출해서는 안 됨
 * Serializable을 구현할 때 `readResolve`나 `writeReplace` 메서드는 private가 아닌 protected로 선언함
   * private로 선언하면 하위 클래스에서 무시되어 문제 발생
