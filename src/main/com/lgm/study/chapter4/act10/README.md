@@ -40,4 +40,40 @@
      ```
     * 멤버 클래스에서 바깥 인스턴스에 접근할 일이 없다면 static을 붙여 정적 멤버 클래스로 만들 것
   * 익명 클래스
+    * 멤버와 달리, 쓰이는 시점에 선언과 동시에 인슽너스가 만들어짐
+    * 오직 `비정적인` 문맥에서 사용될 때만 바깥 클래스의 인스턴스를 참조할 수 있음
+    * `정적` 문맥 에서라도 상수 변수 이외의 정적 멤버는 가질 수 없음
+    * 상수 표현을 위해 초기화된 `final` 기본 타입과 문자열 필드만 가질 수 있음
+    ```java
+    public class AnonymousExample {
+        private double x;
+        private double y;
+    
+        public double operator() {
+            Operator operator = new Operator() {
+                @Override
+                public double plus() {
+                    return x + y;
+                }
+    
+                @Override
+                public double minus() {
+                    return x - y;
+                }
+            };
+            return operator.plus();
+        } 
+    }
+    
+    interface Operator {
+        double plus();
+        double minus();
+    }
+    ```
+    * 익명 클래스를 사용하는 클라이언트는 그 익명 클래스가 상위 타입에서 상속한 멤버 외에는 호출할 수 없음
+    * 익명 클래스의 또 다른 쓰임은 `정적 팩터리 메서드`를 구현할 때
   * 지역 클래스
+    * 지역 변수를 선언할 수 있는 곳이면 실질적으로 어디서든 선언 가능, 유효 범위도 지역 변수와 같음
+    * 멤버 클래스처럼 이름이 있고 반복해서 사용 가능
+    * 익명 클래스처럼 `비정적` 문맥에서 사용될 때만 바깥 인스턴스를 참조할 수 있음
+    * `정적 멤버`는 가질 수 없으며, 가독성을 위해 짧게 작성해야 함
