@@ -14,7 +14,7 @@ public class GenericMethodTest {
         Set<Integer> setInt2 = Set.of(4, 5, 6);
 
         Set<String> result1 = GenericMethodClass.union(set1, set2);     // result1 : [엡실론, 베타, 알파, 감마, 제타, 델타]
-//        Set<String> result2 = GenericMethodClass.union(set1, setInt);   // error: cannot be applied to Set<String>, Set<Integer>
+//        Set<String> result2 = GenericMethodClass.union(set1, setInt1);   // error: cannot be applied to Set<String>, Set<Integer>
         Set<Integer> result2 = GenericMethodClass.union(setInt1, setInt2);  // result2 : [1, 2, 3, 4, 5, 6]
         System.out.println(result1);
         System.out.println(result2);
