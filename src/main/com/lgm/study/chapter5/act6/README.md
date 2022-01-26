@@ -57,3 +57,23 @@ public class Stack {
 * 와일드카드 타입 사용 기본 원칙 = 매개변수화 타입 T가 생산자라면 `<? extends T>`, 소비자라면 `<? super T>`를 사용
 ### Comparable은 언제나 소비자이다
 * 따라서 `Comparable<E>` 보다는 `Comparable<? super E>`를 사용하는 게 더 나음
+### 와일드카드를 적절히 사용하라
+* 기본적으로 메서드 선언에 타입 매개변수가 한 번만 나오면 와일드카드로 대체하는 것이 좋음
+```java
+public static void swap(List<?> list, int i, int j) {
+    list.set(i, list.set(j, list.get(i)));
+}
+```
+* `list.get(i)`에서 컴파일 오류 발생
+* 비한정적 와일드카드를 사용하고 있기 때문
+* 이런 경우는 도우미 메서드를 따로 사용함
+```java
+public static <E> void swapHelper(List<E> list, int i, int j) {
+    list.set(i, list.set(j, list.get(i)));
+}
+```
+* 위 코드는 리턴타입이 항상 E인 것을 알기에 런타임 시, 타입안정성을 보장할 수 있고 `set`하는 경우에도 E타입을 사용할 것을 알기에 컴파일 오류가 없음
+### 결론
+1. 조금 복잡하더라도 와일드카드 타입을 적용하면 API가 훨씬 유연해짐
+2. 널리 쓰일 라이브러리를 작성하는 경우 반드시 와일드카드 타입을 적절히 사용해야 함
+3. PECS 공식 : 생산자에는 extends, 소비자에는 super를 사용
