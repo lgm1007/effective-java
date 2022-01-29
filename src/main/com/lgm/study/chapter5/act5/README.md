@@ -52,3 +52,6 @@ class Test {
 ```
 * 타입 한정인 `<E extends Comparable<E>>`는 '모든 타입 E는 자신과 비교할 수 있다'라는 의미
   * 상호 비교가 가능하다는 뜻
+---
+[[Prev act >>]](../act4/README.md)  
+[[Next act >>]](../act6/README.md)

@@ -41,3 +41,6 @@ public interface SingerSongWriter extends Singer, Songwriter {
 * 관례상 컨벤션
   * 이름 XXX 이면, 골격 구현 클래스 이름은 AbstractXXX
   * `AbstractSet`, `AbstractList`, `AbstractMap` 등
+---
+[[Prev act >>]](../act5/README.md)  
+[[Next act >>]](../act7/README.md)

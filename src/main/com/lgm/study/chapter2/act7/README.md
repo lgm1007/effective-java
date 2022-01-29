@@ -39,3 +39,6 @@ public Object pop() {
 ### 캐시 메모리 누수 주의
 * 객체 사용 후 참조 해제를 잊어버리는 경우
 * 캐시 외부에서 참조하는 동안만 필요하다면 `WeakHashMap`을 사용하여 캐시 만드는 것 추천
+---
+[[Prev act >>]](../act6/README.md)  
+[[Next act >>]](../act8/README.md)

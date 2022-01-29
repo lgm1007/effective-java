@@ -34,3 +34,6 @@ private static void unsafeAdd(List list, Object o) {
 ### 로 타입을 사용해도 좋은 예 - instanceof 연산자
 * 로 타입이든 비한정적 와일드카드이든 instanceof는 완전히 똑같이 동작
 * 이 경우 와일드카드의 물음표가 코드를 지저분하게 만드므로 로 타입을 사용하는 편이 나음
+---
+[[Prev act >>]](../../chapter4/act11/README.md)  
+[[Next act >>]](../act2/README.md)

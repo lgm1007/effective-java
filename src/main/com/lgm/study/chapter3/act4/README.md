@@ -52,3 +52,6 @@ public static Yum newInstance(Yum yum) {...}
 * `final` 필드 용법과 충돌하지 않음
 * 불필요한 검사 예외나 형변환이 필요치 않음
 * 해당 클래스가 구현한 '인터페이스' 타입의 인스턴스를 인수로 받을 수 있음 (변환 생성자, 변환 팩터리 메서드)
+---
+[[Prev act >>]](../act3/README.md)  
+[[Next act >>]](../act5/README.md)

@@ -43,3 +43,6 @@ ObjDto objDto = new ObjDto(connections);
 2. 결함이 있다면, 이 결함이 새로운 클래스의 API까지 전파되어도 괜찮은가?
    * 컴포지션 : 결함을 숨기는 새로운 API 설계 가능
    * 상속 : 상위 클래스의 API를 결함까지 그대로 승계
+---
+[[Prev act >>]](../act3/README.md)  
+[[Next act >>]](../act5/README.md)

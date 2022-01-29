@@ -14,3 +14,5 @@
 * `getInstance` | `instance` : 인스턴스를 생성 (이전에 반환했던 것과 같을 수 있음)
 * `get[OtherType]` : 다른 타입의 인스턴스를 생성 (이전에 반환했던 것과 같을 수 있음)
 * `new[OtherType]` : 다른 타입의 새로운 인스턴스를 생성
+---
+[[Next act >>]](../act2/README.md)

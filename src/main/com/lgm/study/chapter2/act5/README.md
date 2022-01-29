@@ -50,3 +50,6 @@ public class SpellChecker {
 * 인스턴스 생성 시, 생성자에 필요한 자원을 넘겨주기 (의존 객체 주입의 한 형태)
 * 의존 객체 주입은 클래스의 유연성, 재사용성, 테스트 용이성을 개선해준다.
 * 의존성이 많은 큰 프로젝트에서는 대거(Dagger), 주스(Guice), 스프링(Spring) 등 프레임워크를 사용
+---
+[[Prev act >>]](../act4/README.md)  
+[[Next act >>]](../act6/README.md)

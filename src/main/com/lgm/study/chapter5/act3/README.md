@@ -62,3 +62,6 @@ class GenericArray {
     실제로 코딩할 때 배열보다는 리스트를 자주 사용 
         - 이는 위 내용처럼 공변이나 타입 안전성의 이유에서가 아니다.
         - 단순히 원소를 추가/제거하는데 리스트가 편했기 때문이다.
+
+[[Prev act >>]](../act2/README.md)  
+[[Next act >>]](../act4/README.md)

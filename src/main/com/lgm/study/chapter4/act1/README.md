@@ -36,3 +36,6 @@
           return PRIVATE_VALUES.clone();
       }
       ```
+---
+[[Prev act >>]](../../chapter3/act5/README.md)  
+[[Next act >>]](../act2/README.md)

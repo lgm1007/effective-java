@@ -28,3 +28,7 @@ public class PhysicalConstants {
 ```
 ### 결론
 인터페이스는 타입을 정의하는 용도로만 사용할 것. 상수 공개 수단으로 사용하지 말아야 함
+
+---
+[[Prev act >>]](../act7/README.md)  
+[[Next act >>]](../act9/README.md)

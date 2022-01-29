@@ -52,3 +52,7 @@ public <T> T[] toArray(T[] a) {
     실제 프로젝트를 진행할 때나 실무에서 이런 비검사 경고를 본 적은 없었다.
         - IDE에서 자동 완성으로 HashSet<>(); 의 형태를 만들어 줬기 때문
     익숙하게 사용했던지라 이런 경고가 있다는 사실을 새롭게 알게 됨
+
+
+[[Prev act >>]](../act1/README.md)  
+[[Next act >>]](../act3/README.md)

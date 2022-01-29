@@ -47,3 +47,6 @@ public static long sum() {
 ### 오해 - 객체 생성은 피해야한다?
 * JVM은 별일 없는 작은 객체의 생성 및 회수에는 크게 부담되지 않음
 * 명확성, 기능 등을 위해 객체를 생성하는 일은 일반적으로 좋은 방법
+---
+[[Prev act >>]](../act5/README.md)  
+[[Next act >>]](../act7/README.md)

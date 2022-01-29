@@ -8,3 +8,6 @@
 * 추이성(transitivity) : null이 아닌 모든 참조값 `x`,`y`,`z`에 대해, `x.equals(y)`가 true이고 `y.equals(z)`가 true 이면, `x.equals(z)`는 true 이다.
 * 일관성(consistency) : null이 아닌 모든 참조값 `x`,`y`에 대해 `x.equals(y)`를 여러 번 반복해서 호출해도 항상 동일한 결과가 나와야 한다.
 * Not Null : null이 아닌 모든 참조값 `x`에 대해 `x.equals(null)`은 false 이다. `NullPointException`을 발생시키는 코드조차 허용 안 함
+---
+[[Prev act >>]](../../chapter2/act9/README.md)  
+[[Next act >>]](../act2/README.md)

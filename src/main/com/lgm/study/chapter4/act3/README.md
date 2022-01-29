@@ -58,3 +58,6 @@ public final class Calculator {
 * 클래스가 불변임을 보장하려면 자신을 상속하지 못하게 해야 함
 * 가장 쉬운 방법은 final 클래스로 선언하기
 * 또는, 생성자를 private로 선언하고 정적 팩터리를 제공할 수도 있음
+---
+[[Prev act >>]](../act2/README.md)  
+[[Next act >>]](../act4/README.md)

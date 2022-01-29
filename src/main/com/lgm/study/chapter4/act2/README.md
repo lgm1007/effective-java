@@ -19,3 +19,7 @@ class Point {
 * 내부 표현방식을 언제든 변경 가능 (= 유연성 제공)
 
 #### package-private class 또는 private 중첩 class 라면 public 필드로 노출해도 문제 없음
+
+---
+[[Prev act >>]](../act1/README.md)  
+[[Next act >>]](../act3/README.md)

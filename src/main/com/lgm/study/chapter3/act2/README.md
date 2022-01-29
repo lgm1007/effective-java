@@ -8,3 +8,6 @@
 ### AutoValue 사용하기 (자바6부터 지원, 권장)
 * AutoValue 라이브러리 사용하면 자동으로 equals, hashCode, 그리고 toString 메서드까지 자동으로 재정의해줌
 * 사용법 : 클래스에 `@AutoValue` 어노테이션만 추가해줌
+---
+[[Prev act >>]](../act1/README.md)  
+[[Next act >>]](../act3/README.md)

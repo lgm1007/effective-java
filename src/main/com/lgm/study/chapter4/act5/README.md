@@ -55,3 +55,6 @@ sub.overrideMtd();
      * 재정의 가능 메서드를 호출하는 자기 사용 코드를 완벽히 제거
   2. 재정의 가능 메서드를 사용하는 코드를 제거
      * 재정의 가능 메서드는 자신의 본문 코드를 private로 옮기고, 이를 호출하도록 수정
+---
+[[Prev act >>]](../act4/README.md)  
+[[Next act >>]](../act6/README.md)

@@ -4,3 +4,6 @@
 1. public static 멤버가 final 필드인 방식
 2. 정적 팩토리 메서드를 public static 멤버로 제공
 ### 열거 타입으로 싱글턴 만들기
+---
+[[Prev act >>]](../act2/README.md)  
+[[Next act >>]](../act4/README.md)

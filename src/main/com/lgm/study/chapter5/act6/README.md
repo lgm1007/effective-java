@@ -77,3 +77,6 @@ public static <E> void swapHelper(List<E> list, int i, int j) {
 1. 조금 복잡하더라도 와일드카드 타입을 적용하면 API가 훨씬 유연해짐
 2. 널리 쓰일 라이브러리를 작성하는 경우 반드시 와일드카드 타입을 적절히 사용해야 함
 3. PECS 공식 : 생산자에는 extends, 소비자에는 super를 사용
+---
+[[Prev act >>]](../act5/README.md)  
+[[Next act >>]](../act7/README.md)
