@@ -23,6 +23,92 @@ public @interface Test {
 * `@Retention`과 `@Target`의 메타 어노테이션을 사용해 어노테이션 생성
   * `@Retention(RetentionPolicy.RUNTIME)` : 런타임까지 유용한 어노테이션
   * `@Target(ElementType.METHOD)` : 해당 어노테이션은 메서드 선언에서만 사용
+### 마커 어노테이션
+* `아무 매개변수 없이 단순히 대상에 마킹한다.`는 뜻의 어노테이션
+* 해당 어노테이션을 사용하면 `Test 이름에 오타를 내거나 메서드 선언 외의 프로그램 요소에 달면 컴파일 오류`를 냄
+```java
+public class Sample {
+
+    @Test
+    public static void m1() {}    //성공해야 한다.
+
+    public static void m2() {}
+
+    @Test
+    public static void m3() {        //실패해야 한다.
+        throw new RuntimeException("실패");
+    }
+
+    public static void m4() {}
+
+    @Test
+    public void m5() {}             //잘못 사용했다. 정적 메소드가 아니다.
+
+    public static void m6() {}
+
+    @Test
+    public static void m7() {        //실패해야 한다.
+        throw new RuntimeException("실패");
+    }
+
+    public static void m8() {}
+
+}
+```
+* `@Test` 가 달리지 않은 메서드는 테스트 도구가 무시할 것
+* `@Test`의 사용 목적 : Sample 클래스의 의미에는 직접적인 영향을 주지 않고, `@Test`에 관심 있는 도구에서 특별한 처리를 할 기회를 줌
+### 특별한 예외를 던져야 성공하는 테스트
+* Test 진행할 객체 설정
+```java
+public class Sample2 {
+    @ExceptionTest(ArithmeticException.class)
+    public static void m1() {   //성공해야 한다 (0으로 나눔).
+        int i = 0;
+        i = i/i;
+    }
+
+    @ExceptionTest(ArithmeticException.class)
+    public static void m2() {   //실패해야 한다. (다른 예외 발생)
+        int [] a = new int[0];
+        int i = a[1];
+    }
+
+    @ExceptionTest(ArithmeticException.class)
+    public static void m3() {   //실패해야 한다. (예외가 발생하지 않음)
+
+    }
+}
+```
+* `@Test`와의 가장 큰 차이는 어노테이션 매개변수의 값을 추출하여 테스트 메서드가 올바른 예외를 던지는지 확인한다는 점
+### 예외를 여러 개 명시하고 그 중 하나가 발생하면 성공인 테스트
+* 커스텀 어노테이션 설정
+```java
+public @interface ExceptionTest {
+    Class<? extends Throwable>[] value();   //예외를 여러개 명시
+}
+```
+* Test 진행 객체 설정
+```java
+public class Sample2 {
+    ...
+
+    @ExceptionTest(ArithmeticException.class)
+    public static void m3() {   //실패해야 한다. (예외가 발생하지 않음)
+
+    }
+
+    //예외 두개중 하나만 걸려도 true
+    @ExceptionTest({IndexOutOfBoundsException.class, NullPointerException.class})
+    public static void doublyBad() {
+        List<String> list = new ArrayList<>();
+        list.addAll(5, null);
+    }
+}
+```
+### 결론
+* 어노테이션으로 할 수 있는 일을 명명 패턴으로 처리할 필요 없다.
+* 일반 프로그래머가 어노테이션 타입을 정의할 일은 거의 없다.
+  * 자바 프로그래머라면 예외 없이 자바가 제공하는 어노테이션은 사용해야 한다.
 ---
 [[Prev act >>]](../act5/README.md)  
 [[Next act >>]](../act7/README.md)
