@@ -70,3 +70,6 @@ Stream<List<String>> -> flatMap -> Stream<String>
   * 되도록 컬렉션으로 반환하는게 좋다.
 * 반환 전부터 이미 원소들을 컬렉션에 담아 관리하고 있거나 컬렉션을 하나 더 만들어도 될 정도로 원소의 개수가 적다면 ArrayList 같은 표준 컬렉션에 담아 반환한다.
   * 그렇지 않으면, 전용 컬렉션을 구현해야 할지 고려한다.
+---
+[[Prev act >>]](../act5/README.md)  
+[[Next act >>]](../act7/README.md)
