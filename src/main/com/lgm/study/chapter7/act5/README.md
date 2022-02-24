@@ -26,7 +26,7 @@ public class Test {
     public static void main(String[] args) {
         Map<String, Long> freq = new HashMap<>();
         try(Stream<String> words = new Scanner("file").tokens()) {
-            words.collect(groupingBy(String::toLowerCase, counting()));
+            freq = words.collect(groupingBy(String::toLowerCase, counting()));
         }
     }
 }
@@ -37,6 +37,13 @@ public class Test {
 * java.util.stream.Collectors 클래스는 스트림의 원소들을 객체 하나에 취합하는 여러 메서드를 제공해줌
   * `toList()`, `toSet()`, `toCollection(collectionFactory)`
 * 스트림의 원소들을 손쉽게 컬렉션으로 모을 수 있음
+```java
+// 빈도표에서 가장 흔한 10개 리스트에 담기
+List<String> topten = freq.keySet().stream()
+    .sorted(compareing(freq::get).reserved())
+    .limit(10)
+    .colllect(toList());
+```
 * Collectors의 멤버를 정적 import하여 쓰면 스트림 파이프라인의 가독성을 향상시킬 수 있음
 ### 결론
 * 스트림 파이프라인 프로그래밍의 핵심은 부작용 없는 함수 객체에 있다.
