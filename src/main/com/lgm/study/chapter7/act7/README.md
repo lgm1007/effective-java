@@ -59,3 +59,4 @@ public class ProbablePrime {
 ```
 ---
 [[Prev act >>]](../act6/README.md)  
+[[Next act >>]](../../chapter8/act1/README.md)
