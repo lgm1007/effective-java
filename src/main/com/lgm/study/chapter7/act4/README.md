@@ -42,6 +42,34 @@
 |skip(long n)|n개 만큼의 스트림 요소를 건너뜀|
 |limit(long maxSize)|maxSize 갯수만큼만 출력|
 
+### filter, map, flatMap
+#### filter
+* 특정 조건으로 컨텐츠를 필터링하는 기능
+* `filter(조건)`으로 사용, 이 조건에 해당하는 item만 리턴
+* 예)
+```java
+List<String> list = Arrays.asList("a1", "a2", "b1", "b2", "c1", "c2", "c3");
+Stream<String> filtered = list.stream()
+        .filter(s -> s.startsWith("c"));    // c로 시작하는 아이템만 리턴
+filtered.forEach(System.out::println);      // c1, c2, c3
+```
+#### map
+* 각각의 item을 변경하여 새로운 컨텐츠를 생성하는 기능
+* `map(함수)`로 어떻게 아이템을 변경할지 함수로 정의
+```java
+List<String> list = Arrays.asList("a1", "a2", "b1", "b2", "c1", "c2", "c3");
+list.stream().map(s -> s.toUpperCase())     // 알파벳 대문자로 변환
+        .forEach(System.out::println);      // A1, A2, B1, B2, C1, C2, C3
+```
+#### flatMap
+* 여러 개의 스트림을 하나로 합쳐줌
+  * 복잡한 스트림을 간단한 스트림으로 만들어줄 때 사용
+```java
+String[][] arrays = new String[][]{ {"a1", "a2"}, {"b1", "b2"}, {"c1", "c2", "c3"} };
+Stream<String> stream = Arrays.stream(arrays)   // Stream<String[]> 타입의 스트림 반환
+        .flatMap(s -> Arrays.stream(s));       // Stream<String> 타입의 스트림으로 변환
+stream.forEach(System.out::println);          // a1, a2, b1, b2, c1, c2, c3
+```
 ### 스트림의 지연 평가 (Lazy evaluation)
 * 스트림에 대한 평가는 종단 연산이 호출될 때 이뤄짐
 * 종단 연산에 쓰이지 않는 데이터 원소는 계산에 쓰이지 않음
